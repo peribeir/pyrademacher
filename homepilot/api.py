@@ -18,6 +18,7 @@ from .const import (
     APICAP_STOP_SLAT_CMD,
     APICAP_VENTIL_POS_CFG,
     APICAP_VENTIL_POS_MODE_CFG,
+    APICAP_GOTO_VENTIL_POS_CMD,
     APICAP_SET_RGB_CMD,
     APICAP_SET_COLOR_TEMP_CMD,
     APICAP_TIME_AUTO_CFG,
@@ -606,6 +607,9 @@ class HomePilotApi:
 
     async def async_goto_dusk_pos_cmd(self, did):
         return await self.async_send_device_command(did, APICAP_GOTO_DUSK_POS_CMD, None)
+
+    async def async_goto_ventilation_position(self, did):
+        return await self.async_send_device_command(did, APICAP_GOTO_VENTIL_POS_CMD, None)
 
     @property
     def host(self):

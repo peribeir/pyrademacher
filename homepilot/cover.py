@@ -184,6 +184,10 @@ class HomePilotCover(HomePilotAutoConfigDevice):
         if self.has_ventilation_position_config:
             await self.api.async_set_ventilation_position(self.did, 100 - position)
 
+    async def async_goto_ventilation_position(self) -> None:
+        if self.has_ventilation_position_config:
+            await self.api.async_goto_ventilation_position(self.did)
+
     @property
     def cover_position(self) -> int:
         return self._cover_position
